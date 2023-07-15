@@ -8,15 +8,14 @@
             <div class="row g-0">
               <div class="col-md-6 col-lg-5 d-none d-md-block">
                 <img src="https://i.pinimg.com/564x/0f/32/ab/0f32ab02e80f8b0ed880649d2433ab10.jpg"
-                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; width: 100%;" />
               </div>
               <div class="col-md-6 col-lg-7 d-flex align-items-center">
                 <div class="card-body p-4 p-lg-4 text-black">
   
-                  <form>
+                  <form method="POST">
   
                     <div class="d-flex align-items-center mb-3 pb-1">
-                      <i class=" fa-2x me-3" style="color: #617e9a;"></i>
                       <span class="h1 fw-bold mb-0">BlogLand</span>
                     </div>
   
@@ -25,43 +24,53 @@
                     <div class="row">
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="text" id="form3Example1" class="form-control" />
+                            <input type="text" id="form3Example1" class="form-control" name="first_name"/>
                             <label class="form-label" for="form3Example1">First name</label>
                           </div>
                         </div>
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="text" id="form3Example2" class="form-control" />
+                            <input type="text" id="form3Example2" class="form-control" name="last_name"/>
                             <label class="form-label" for="form3Example2">Last name</label>
                           </div>
                         </div>
                       </div>
-        
+                      
                       <!-- Email input -->
                       <div class="form-outline mb-4">
-                        <input type="email" id="form3Example3" class="form-control" />
+                       <input type="text" id="form3Example3" class="form-control" name="username"/>
+                       <label class="form-label" for="form3Example3">Username</label>
+                     </div>
+
+                      <!-- Email input -->
+                      <div class="form-outline mb-4">
+                        <input type="email" id="form3Example3" class="form-control" name="email"/>
                         <label class="form-label" for="form3Example3">Email address</label>
                       </div>
   
-                    <div class="form-outline mb-4">
-                      <input type="password" id="form2Example27" class="form-control form-control-lg" />
-                      <label class="form-label" for="form2Example27">Password</label>
-                    </div>
-
-                    <div class="form-outline mb-4">
-                        <input type="password" id="form2Example27" class="form-control form-control-lg" />
-                        <label class="form-label" for="form2Example27">Confirm password</label>
+                   
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline">
+                            <input type="password" id="form3Example1" class="form-control" name="password"/>
+                            <label class="form-label" for="form3Example1">Password</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline">
+                            <input type="password" id="form3Example2" class="form-control" name="confirm_password"/>
+                            <label class="form-label" for="form3Example2">Confirm password</label>
+                          </div>
+                        </div>
                       </div>
-  
+
                     <div class="pt-1 mb-4">
-                      <button class="btn btn-dark btn-lg btn-block" type="button">Register</button>
+                      <button class="btn btn-dark btn-lg btn-block" type="submit">Register</button>
                     </div>
   
                     <a class="small text-muted" href="#!">Forgot password?</a>
                     <p class="mb-5 pb-lg-2" style="color: #393f81;">Do have an account already? <a href="{{url_for('login')}}"
                         style="color: #867b4e;">Login here</a></p>
-                    <a href="#!" class="small text-muted">Terms of use.</a>
-                    <a href="#!" class="small text-muted">Privacy policy</a>
                   </form>
   
                 </div>

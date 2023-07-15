@@ -1,2 +1,19 @@
 {% extends 'base.html' %}
-{% block sub_content %}<h1>Index</h1>{% endblock %}
+{% block sub_content %}
+{% if posts %}
+{% for post in posts %}
+{{post}}
+<h3><a href="/posts/{{ post.id }}">{{ post['title'] }}</a></h3>
+<h5>Written by {{ post['author'] }}</h5>
+
+ 
+
+<hr>
+{% endfor %}
+{% else %}
+<h3>No blogs have been written yet</h3>
+{% endif %}
+
+ 
+
+{% endblock %}
