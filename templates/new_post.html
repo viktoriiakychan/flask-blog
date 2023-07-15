@@ -1,2 +1,46 @@
 {% extends 'base.html' %}
-{% block sub_content %}<h1>New post</h1>{% endblock %}
+{% block sub_content %}
+<section class="vh-100" style="background-color: #617e9a;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-11">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              
+              <div class="col-md-6 col-lg-12 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black align-items-center">
+  
+                  <form method="POST">
+  
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                      <span class="h1 fw-bold mb-0">BlogLand</span>
+                    </div>
+  
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Create your post here</h5>
+  
+                    <div class="form-outline mb-4">
+                        <input type="text" id="form2Example17" class="form-control form-control-lg" name="title" placeholder="Title"/>
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                        <input type="text" id="form2Example17" class="form-control form-control-lg" name="description" placeholder="Description"/>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <textarea class="form-control form-control-lg" name="text" rows="6" cols="100" placeholder="Text"></textarea>
+                    </div>
+  
+                    <div class="pt-1 mb-4">
+                      <button class="btn btn-dark btn-lg btn-block" type="submit">Create a post</button>
+                    </div>
+  
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

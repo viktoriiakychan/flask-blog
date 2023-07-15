@@ -37,9 +37,13 @@ def index():
 def about():
     return render_template("about.html")
 
-@app.route("/posts/<int:id>")
+@app.route("/post/<int:id>")
 def posts(id):
-    return render_template("posts.html", post=id)
+    cursor = mysql.connection.cursor()
+    result = cursor.execute("SELECT * FROM posts WHERE id= %s", ([id]))
+    post = cursor.fetchall()
+    print(f"fetch posts: {post}")
+    return render_template("post.html", post=post[0])
 
 @app.route("/register/", methods=["GET", "POST"])
 def register():
@@ -88,7 +92,6 @@ def login():
                 session['login'] = True
                 session['first_name'] = user['first_name']
                 session['last_name'] = user['last_name']
-                flash("Welcome, " + session['first_name'] + "!")
             else: 
                 cursor.close()
                 flash("Username or password is incorrect!", "danger")
@@ -101,11 +104,24 @@ def login():
 @app.route("/logout/")
 def logout():
     session.clear()
-    flash("You have been logged out!", "info")
     return redirect("/")
 
 @app.route("/new-post/", methods=["GET", "POST"])
 def new_post():
+    if request.method == "POST":
+        post_details = request.form
+        cursor = mysql.connection.cursor()
+        print(session['username'])
+        if not post_details["title"]: flash("Enter title!", "danger")
+        elif not post_details["description"]: flash("Enter description!", "danger")
+        elif not post_details["text"]: flash("Enter text!", "danger")
+        else:
+            cursor.execute("INSERT INTO posts(id, title, description, text) VALUES (%s, %s, %s, %s)",("", post_details['title'], post_details['description'], post_details['text']))
+            cursor.connection.commit()
+            cursor.close()
+            flash("You successefully created a new post", "success")
+            return redirect("/")
+
     return render_template("new_post.html")
 
 @app.route("/edit-post/<int:id>", methods=["GET", "POST"])
